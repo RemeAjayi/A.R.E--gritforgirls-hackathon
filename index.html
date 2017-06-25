@@ -3,8 +3,12 @@
 <head>
 	<title>Dashboard</title>
 <script type="text/javascript">
+//comment your code
 var coins = 5;
-function drawCoins(x,y)
+var columnCount = 5; //number of columns for each element
+var rowCount = 4; //number of rows for each element
+
+function draw(x,y)
 {
     var c = document.getElementById("grid-cost");
     var ctx = c.getContext("2d");
@@ -12,11 +16,13 @@ function drawCoins(x,y)
     ctx.drawImage(img, x, y);	
 }
 window.onload = function() {
-	for(i=0; i<coins; i++)
+	for(j=0; j<rowCount; j++)
 	{
-	drawCoins(10*i,10*i);	
+	for(i=0; i<columnCount; i++)
+	{
+	draw(20*i,20*j);	
 	}
-    
+    }
 }
 </script>
 </head>
@@ -24,7 +30,7 @@ window.onload = function() {
 <div class="container">
 <div class="cost">
 <div class="grid">
-<canvas id="grid-cost" width="800" height="700" style="border:1px solid #d3d3d3;">
+<canvas id="grid-cost" width="200" height="200" style="border:1px solid #d3d3d3;">
 </div>
 <div class="generator">
 	
