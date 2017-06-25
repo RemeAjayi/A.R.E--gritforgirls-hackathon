@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+<script type="text/javascript">
+var coins = 5;
+function drawCoins(x,y)
+{
+    var c = document.getElementById("grid-cost");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("cost-coin");
+    ctx.drawImage(img, x, y);	
+}
+window.onload = function() {
+	for(i=0; i<coins; i++)
+	{
+	drawCoins(10*i,10*i);	
+	}
+    
+}
+</script>
+</head>
+<body>
+<div class="container">
+<div class="cost">
+<div class="grid">
+<canvas id="grid-cost" width="800" height="700" style="border:1px solid #d3d3d3;">
+</div>
+<div class="generator">
+	
+</div>
+<div class="inverter">
+	
+</div>
+	
+</div>
+<img src="img/cost.png" id="cost-coin">
+</div>
+</body>
+</html>
