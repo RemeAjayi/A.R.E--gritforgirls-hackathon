@@ -25,7 +25,7 @@
 //comment your code
 //for reading json
 var generator = document.getElementById("generator");
-var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+var requestURL = 'february.json';
 var request = new XMLHttpRequest();
 request.open('GET', requestURL);
 request.responseType = 'json';
@@ -34,12 +34,20 @@ request.onload = function() {
 var march = request.response; //array of values generated in march
 populateHeader(march);
 }
+
+var februaryGridCost = 0;
+
 function populateHeader(jsonObj) {
-  var myP = document.createElement('p');
-  myP.textContent = jsonObj['formed'];
-  generator.appendChild(myP);
+//calculate cost for february
+for(i=0; i<jsonObj.length; i++){
+februaryGridCost += jsonObj[i]["Cost_since_last"];
 }
 
+  var myP = document.createElement('p');
+  myP.textContent = februaryGridCost + "   " + jsonObj.length;
+  generator.appendChild(myP);
+}
+//each coin represents 10 Naira
 //for drawing
 var coins = 5;
 var columnCount = 5; //number of columns for each element
