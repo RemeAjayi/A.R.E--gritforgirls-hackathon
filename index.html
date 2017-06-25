@@ -2,11 +2,30 @@
 <html>
 <head>
 <title>Dashboard</title>
-<script type="text/javascript">
+</head>
+<body>
+<div class="container">
+<div class="cost">
+<div class="grid">
+<canvas id="grid-cost" width="200" height="200" style="border:1px solid #d3d3d3;">
+</div>
+<div id="generator">
+	<!-- change back to class -->
+</div>
+<div class="inverter">
+	
+</div>
+	
+</div>
+<img src="img/cost.png" id="cost-coin">
+<img src="img/power.png" id="power-bulb">
+</div>
+</body>
+<script>
 //comment your code
 //for reading json
 var generator = document.getElementById("generator");
-var requestURL = 'https://dos.grit.systems/hackathon/march.json';
+var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
 var request = new XMLHttpRequest();
 request.open('GET', requestURL);
 request.responseType = 'json';
@@ -17,7 +36,7 @@ populateHeader(march);
 }
 function populateHeader(jsonObj) {
   var myP = document.createElement('p');
-  myP.textContent = jsonObj['SourceType'];
+  myP.textContent = jsonObj['formed'];
   generator.appendChild(myP);
 }
 
@@ -43,23 +62,4 @@ window.onload = function() {
     }
 }
 </script>
-</head>
-<body>
-<div class="container">
-<div class="cost">
-<div class="grid">
-<canvas id="grid-cost" width="200" height="200" style="border:1px solid #d3d3d3;">
-</div>
-<div id="generator">
-	<!-- change back to class -->
-</div>
-<div class="inverter">
-	
-</div>
-	
-</div>
-<img src="img/cost.png" id="cost-coin">
-<img src="img/power.png" id="power-bulb">
-</div>
-</body>
 </html>
