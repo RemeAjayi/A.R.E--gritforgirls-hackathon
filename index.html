@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboard</title>
+<title>Dashboard</title>
 <script type="text/javascript">
 //comment your code
+//for reading json
+var generator = document.getElementById("generator");
+var requestURL = 'https://dos.grit.systems/hackathon/march.json';
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+request.onload = function() {
+var march = request.response; //array of values generated in march
+populateHeader(march);
+}
+function populateHeader(jsonObj) {
+  var myP = document.createElement('p');
+  myP.textContent = jsonObj['SourceType'];
+  generator.appendChild(myP);
+}
+
+//for drawing
 var coins = 5;
 var columnCount = 5; //number of columns for each element
 var rowCount = 4; //number of rows for each element
@@ -32,8 +50,8 @@ window.onload = function() {
 <div class="grid">
 <canvas id="grid-cost" width="200" height="200" style="border:1px solid #d3d3d3;">
 </div>
-<div class="generator">
-	
+<div id="generator">
+	<!-- change back to class -->
 </div>
 <div class="inverter">
 	
@@ -41,6 +59,7 @@ window.onload = function() {
 	
 </div>
 <img src="img/cost.png" id="cost-coin">
+<img src="img/power.png" id="power-bulb">
 </div>
 </body>
 </html>
